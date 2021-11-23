@@ -1,0 +1,9 @@
+<app-breadcrumb
+    title="Cadastrar Motivo de Exclusão de Viatura"
+    path="SGF > Motivo de Exclusão de Viatura > Cadastrar"
+></app-breadcrumb>
+<app-motivo-exclusao-viatura-form
+  [isHidden]="isHidden"
+  saveLabel="Salvar"
+  (appSubmit)="handleSubmit($event)">
+</app-motivo-exclusao-viatura-form>

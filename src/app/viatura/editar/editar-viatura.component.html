@@ -1,0 +1,9 @@
+<app-breadcrumb
+    title="Editar Viatura"
+    path="SGF > Viatura > Editar"
+></app-breadcrumb>
+<app-viatura-form
+  [value]="viatura"
+  saveLabel="Atualizar"
+  (appSubmit)="handleSubmit($event)">
+</app-viatura-form>

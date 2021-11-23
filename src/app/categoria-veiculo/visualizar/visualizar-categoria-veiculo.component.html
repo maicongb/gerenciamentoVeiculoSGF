@@ -1,0 +1,35 @@
+<app-breadcrumb
+    title="Visualizar Categoria de Veículo"
+    path="SGF > Categoria de Veículo > Visualizar"
+></app-breadcrumb>
+<form [formGroup]="form">
+    <mat-card>
+        <mat-card-content>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+                <app-input
+                    fxFlex
+                    type="text"
+                    formControlName="nome"
+                    label="Categoria de veículo"
+                >
+                </app-input>
+            </div>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >    
+                <mat-label>Status</mat-label>
+                <mat-slide-toggle
+                    fxFlex="10"
+                    formControlName="ativo"
+                    color="primary"
+                ></mat-slide-toggle>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>

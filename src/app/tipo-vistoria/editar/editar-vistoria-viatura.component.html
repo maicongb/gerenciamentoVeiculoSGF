@@ -1,0 +1,10 @@
+<app-breadcrumb
+    title="Editar Tipo de Vistoria"
+    path="SGF > Tipo de Vistoria > Editar"
+></app-breadcrumb>
+<app-tipo-vistoria-form
+  [value]="tipoVistoria"
+  [isHidden]="isHidden"
+  saveLabel="Atualizar"
+  (appSubmit)="handleSubmit($event)">
+</app-tipo-vistoria-form>

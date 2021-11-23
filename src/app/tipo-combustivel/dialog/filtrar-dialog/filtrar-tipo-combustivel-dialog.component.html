@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Filtrar Resultados</h2>
+<mat-dialog-content [formGroup]="form">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap.gt-xs="15px">
+    <app-input
+      fxFlex
+      type="text"
+      formControlName="nome"
+      label="Tipo de Combustível"
+    ></app-input>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="form.value" color="primary">
+    <mat-icon>done</mat-icon>
+    Confirmar
+  </button>
+  <button mat-raised-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+    Cancelar
+  </button>
+</mat-dialog-actions>

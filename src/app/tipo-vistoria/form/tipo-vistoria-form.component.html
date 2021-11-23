@@ -1,0 +1,36 @@
+<form (ngSubmit)="handleSubmit()" [formGroup]="form">
+    <mat-card>
+        <mat-card-content>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+                <app-input
+                    fxFlex="100"
+                    formControlName="nome"
+                    label="Tipo de Vistoria"
+                    required="true"
+                ></app-input>
+            </div>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+                <mat-label *ngIf="isHidden">Status</mat-label>
+                <mat-slide-toggle
+                    fxFlex="10"
+                    formControlName="ativo"
+                    color="primary"
+                    *ngIf="isHidden"
+                ></mat-slide-toggle>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">
+                {{saveLabel}}
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>

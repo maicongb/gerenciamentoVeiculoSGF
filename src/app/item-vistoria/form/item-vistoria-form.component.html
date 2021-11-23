@@ -1,0 +1,55 @@
+<form (ngSubmit)="handleSubmit()" [formGroup]="form">
+    <mat-card>
+        <mat-card-content>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+                formGroupName="tipoVistoria"
+                
+            >
+
+                <mat-form-field appearance="fill" fxFlex="30">
+                    <mat-label>Tipo de Vistoria</mat-label>
+                    <select matNativeControl formControlName="id">
+                        <option *ngFor="let tipoVistoria of tiposVistorias$ | async"
+                            [value]="tipoVistoria.id">{{ tipoVistoria.nome }}
+                        </option>
+                    </select>
+                </mat-form-field>
+
+            </div>
+
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+                <app-input
+                    fxFlex="90"
+                    formControlName="nome"
+                    label="Item de Vistoria"
+                    required="true"
+                ></app-input>
+
+                <mat-label *ngIf="isHidden">Status</mat-label>
+                <mat-slide-toggle
+                    fxFlex="10"
+                    formControlName="ativo"
+                    color="primary"
+                    *ngIf="isHidden"
+                ></mat-slide-toggle>
+
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">
+                {{saveLabel}}
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+        <!-- debug -->
+     <app-form-debug [form]="form"></app-form-debug>
+</form>
+

@@ -1,0 +1,10 @@
+<app-breadcrumb
+    title="Editar Motivo de Transferência de Viatura"
+    path="SGF > Motivo de Transferência de Viatura > Editar"
+></app-breadcrumb>
+<app-motivo-transferencia-viatura-form
+  [value]="motivoTransferenciaViatura"
+  [isHidden]="isHidden"
+  saveLabel="Atualizar"
+  (appSubmit)="handleSubmit($event)">
+</app-motivo-transferencia-viatura-form>

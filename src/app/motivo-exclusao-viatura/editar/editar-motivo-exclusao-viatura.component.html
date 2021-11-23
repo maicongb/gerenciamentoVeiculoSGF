@@ -1,0 +1,10 @@
+<app-breadcrumb
+    title="Editar Motivo de Exclusão de Viatura"
+    path="SGF > Motivo de Exclusão de Viatura > Editar"
+></app-breadcrumb>
+<app-motivo-exclusao-viatura-form
+  [value]="motivoExclusaoViatura"
+  [isHidden]="isHidden"
+  saveLabel="Atualizar"
+  (appSubmit)="handleSubmit($event)">
+</app-motivo-exclusao-viatura-form>

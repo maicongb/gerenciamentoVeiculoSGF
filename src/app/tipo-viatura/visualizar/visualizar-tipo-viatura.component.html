@@ -1,0 +1,36 @@
+<app-breadcrumb
+    title="Visualizar Tipo de Viatura"
+    path="SGF > Tipo de Viatura > Visualizar"
+></app-breadcrumb>
+<form [formGroup]="form">
+    <mat-card>
+        <mat-card-content>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+                <app-input
+                    fxFlex
+                    type="text"
+                    formControlName="nome"
+                    label="Tipo de Viatura"
+                >
+                </app-input>
+            </div>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >    
+                <mat-label>Status</mat-label>
+                <mat-slide-toggle
+                    fxFlex="10"
+                    formControlName="ativo"
+                    color="primary"
+                ></mat-slide-toggle>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>
+

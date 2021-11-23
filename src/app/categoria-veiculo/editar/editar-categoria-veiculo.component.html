@@ -1,0 +1,10 @@
+<app-breadcrumb
+    title="Editar Categoria de Veículo"
+    path="SGF > Categoria de Veículo > Editar"
+></app-breadcrumb>
+<app-categoria-veiculo-form
+  [value]="categoriaVeiculo"
+  [isHidden]="isHidden"
+  saveLabel="Atualizar"
+  (appSubmit)="handleSubmit($event)">
+</app-categoria-veiculo-form>

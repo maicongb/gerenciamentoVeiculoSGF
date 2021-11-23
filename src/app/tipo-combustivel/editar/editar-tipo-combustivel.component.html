@@ -1,0 +1,10 @@
+<app-breadcrumb
+    title="Editar Tipo de Combustível"
+    path="SGF > Tipo de Combustível > Editar"
+></app-breadcrumb>
+<app-tipo-combustivel-form
+  [value]="tipoCombustivel"
+  [isHidden]="isHidden"
+  saveLabel="Atualizar"
+  (appSubmit)="handleSubmit($event)">
+</app-tipo-combustivel-form>

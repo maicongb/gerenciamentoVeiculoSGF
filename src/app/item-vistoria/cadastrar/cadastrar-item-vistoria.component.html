@@ -1,0 +1,9 @@
+<app-breadcrumb
+    title="Cadastrar Item de Vistoria"
+    path="SGF > Item de Vistoria > Cadastrar"
+></app-breadcrumb>
+<app-item-vistoria-form
+  [isHidden]="isHidden"
+  saveLabel="Salvar"
+  (appSubmit)="handleSubmit($event)">
+</app-item-vistoria-form>

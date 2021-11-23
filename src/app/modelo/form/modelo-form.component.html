@@ -1,0 +1,85 @@
+<form (ngSubmit)="handleSubmit()" [formGroup]="form">
+    <mat-card>
+        <mat-card-content>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+                formGroupName="marcaVeiculo"
+            >
+
+                <mat-form-field appearance="fill" fxFlex="30">
+                    <mat-label>Marca do Veículo</mat-label>
+                    <select matNativeControl formControlName="id">
+                        <option *ngFor="let marcaVeiculo of marcasVeiculos$ | async"
+                            [value]="marcaVeiculo.id">{{ marcaVeiculo.nome }}
+                        </option>
+                    </select>
+                </mat-form-field>
+
+            </div>
+
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+                formGroupName="categoriaVeiculo"
+            >
+
+                <mat-form-field appearance="fill" fxFlex="30">
+                    <mat-label>Categoria do Veículo</mat-label>
+                    <select matNativeControl formControlName="id">
+                        <option *ngFor="let categoriaVeiculo of categoriasVeiculos$ | async"
+                            [value]="categoriaVeiculo.id">{{ categoriaVeiculo.nome }}
+                        </option>
+                    </select>
+                </mat-form-field>
+
+            </div>
+
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+                <app-input
+                    fxFlex="30"
+                    formControlName="nome"
+                    label="Modelo"
+                    required="true"
+                ></app-input>
+
+                <app-input
+                    fxFlex="30"
+                    formControlName="potencia"
+                    label="Potênica"
+                    required="true"
+                ></app-input>
+
+                <app-input
+                    fxFlex="30"
+                    formControlName="tanque"
+                    label="Capacidade do Tanque"
+                    required="true"
+                ></app-input>
+
+                <mat-label *ngIf="isHidden">Status</mat-label>
+                <mat-slide-toggle
+                    fxFlex="10"
+                    formControlName="ativo"
+                    color="primary"
+                    *ngIf="isHidden"
+                ></mat-slide-toggle>
+
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">
+                {{saveLabel}}
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+        <!-- debug -->
+     <app-form-debug [form]="form"></app-form-debug>
+</form>

@@ -1,0 +1,35 @@
+<mat-form-field>
+    <mat-label>{{ label }}</mat-label>
+    <mat-select
+        
+        [formControl]="control"
+        (blur)="onTouched()"
+        (selectionChange)="handleInput()"
+        [compareWith]="compareWith"
+        [multiple]="multiple"
+        [required]="required"
+    >
+        <mat-option *ngIf="!multiple">Selecione</mat-option>
+        <mat-option *ngFor="let opcao of opcoes" [value]="opcao.id">
+            {{ opcao[displayProperty || 'nome'] }}
+        </mat-option>
+    </mat-select>
+    <mat-icon
+        *ngIf="help"
+        matSuffix
+        [matTooltip]="help"
+        matTooltipClass="help-tooltip"
+    >
+        help
+    </mat-icon>
+    <mat-error *ngIf="control.invalid">
+        <ng-container *ngIf="control.hasError('required')">
+            Campo de preenchimento obrigatório
+        </ng-container>
+        <ng-container *ngFor="let error of errors | keyvalue">
+            <ng-container *ngIf="control.hasError(error.key)">
+                {{ error.value }}
+            </ng-container>
+        </ng-container>
+    </mat-error>
+</mat-form-field>

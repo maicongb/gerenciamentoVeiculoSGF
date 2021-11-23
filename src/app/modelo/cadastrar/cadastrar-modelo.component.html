@@ -1,0 +1,9 @@
+<app-breadcrumb
+    title="Cadastrar Modelo de Veículo"
+    path="SGF > Modelo de Veículo > Cadastrar"
+></app-breadcrumb>
+<app-modelo-form
+  [isHidden]="isHidden"
+  saveLabel="Salvar"
+  (appSubmit)="handleSubmit($event)">
+</app-modelo-form>

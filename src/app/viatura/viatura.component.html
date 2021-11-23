@@ -1,0 +1,148 @@
+<app-breadcrumb
+    title="Pesquisar Viatura"
+    path="SGF > Viatura > Pesquisar"
+></app-breadcrumb>
+<mat-card>
+    <div class="card-header">
+        <span class="spacer"></span>
+        <a
+            mat-stroked-button
+            color="primary"
+            routerLink="./cadastrar"
+            matTooltip="Novo"
+            ><mat-icon>add</mat-icon> Novo</a
+        >
+        <button
+            mat-stroked-button
+            color="primary"
+            matTooltip="Filtrar Resultados"
+            (click)="showFilter()"
+        >
+            <mat-icon>search</mat-icon> Filtrar
+        </button>
+    </div>
+    <mat-card-content>
+        <div class="loading-shade" *ngIf="!!loading$ && (loading$ | async)">
+            <mat-spinner></mat-spinner>
+        </div>
+
+        <table
+            mat-table
+            [dataSource]="data"
+            matSort
+            matSortActive="nome"
+            matSortDisableClear
+            matSortDirection="asc"
+        >    
+            <ng-container matColumnDef="upm">
+                <th mat-header-cell *matHeaderCellDef>
+                    Upm
+                </th>
+                <td  class="mat-column-upm" mat-cell *matCellDef="let element" >{{ element?.upm }}</td>
+            </ng-container>
+
+            <ng-container  matColumnDef="prefixo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    Prefixo
+                </th>
+                <td class="mat-column-prefixo" mat-cell *matCellDef="let element" >{{ element.prefixo }}</td>
+            </ng-container>
+
+            <ng-container  matColumnDef="tombamento">
+                <th mat-header-cell *matHeaderCellDef>
+                    Tombamento
+                </th>
+                <td class="mat-column-tombamento" mat-cell *matCellDef="let element" >{{ element.tombamento }}</td>
+            </ng-container>
+
+            <ng-container  matColumnDef="tipoViatura">
+                <th mat-header-cell *matHeaderCellDef>
+                    Emprego
+                </th>
+                <td class="mat-column-tipoViatura" mat-cell *matCellDef="let element" >{{ element.tipoVeiculo }}</td>
+            </ng-container>
+
+            <ng-container  matColumnDef="modeloVeiculo">
+                <th mat-header-cell *matHeaderCellDef>
+                    Marca/Modelo
+                </th>
+                <td class="mat-column-modeloVeiculo" mat-cell *matCellDef="let element" >{{ element.marcaVeiculo }} / {{ element.modeloVeiculo }}</td>
+            </ng-container>
+
+            <ng-container  matColumnDef="placa">
+                <th mat-header-cell *matHeaderCellDef>
+                   Placa
+                </th>
+                <td class="mat-column-placa" mat-cell *matCellDef="let element" >{{ element.placa }}</td>
+            </ng-container>
+
+            <ng-container  matColumnDef="odometro">
+                <th mat-header-cell *matHeaderCellDef>
+                    Odometro
+                </th>
+                <td class="mat-column-odometro" mat-cell *matCellDef="let element" >{{ element.odometro }} Km</td>
+            </ng-container>
+
+            <ng-container matColumnDef="ativo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    Status
+                </th>
+                
+                <td class="mat-column-ativo" mat-cell *matCellDef="let element" >
+                    {{ element.ativo == 1 ? 'Ativo' : 'Inativo' }}
+                   
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="acoes">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td
+                    mat-cell
+                    *matCellDef="let element"
+                    style="text-align: right;"
+                >
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <a
+                            mat-menu-item
+                            [routerLink]="['./visualizar/' + element.id]">
+                            <mat-icon>visibility</mat-icon>
+                            <span>Visualizar</span>
+                        </a>
+                        <a
+                            mat-menu-item
+                            [routerLink]="['./editar/' + element.id]"
+                            *ngIf="element.situacao?.descricao !== 'Inativo'"
+                        >
+                            <mat-icon>edit</mat-icon>
+                            <span>Editar</span>
+                        </a>
+                        <button mat-menu-item (click)="delete(element)" *ngIf="element.situacao?.descricao !== 'Inativo'">
+                           
+                            <mat-icon>delete</mat-icon>
+                            <span>Excluir</span>
+                        </button>
+                    </mat-menu>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <div *ngIf="data?.totalElements == 0" class="no-results">
+            Nenhum registro encontado
+        </div>
+        <mat-paginator
+            [pageSize]="10"
+            [length]="data?.totalElements"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+        ></mat-paginator>
+    </mat-card-content>
+</mat-card>
+
+
+
+

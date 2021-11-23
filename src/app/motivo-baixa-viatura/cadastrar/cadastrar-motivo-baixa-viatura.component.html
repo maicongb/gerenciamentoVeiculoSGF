@@ -1,0 +1,9 @@
+<app-breadcrumb
+    title="Cadastrar Tipo de Viatura"
+    path="SGF > Tipo de Viatura > Cadastrar"
+></app-breadcrumb>
+<app-motivo-baixa-viatura-form
+  [isHidden]="isHidden"
+  saveLabel="Salvar"
+  (appSubmit)="handleSubmit($event)">
+</app-motivo-baixa-viatura-form>

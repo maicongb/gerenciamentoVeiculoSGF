@@ -1,0 +1,20 @@
+<nav
+    class="sidebar"
+    [ngClass]="{ unexpanded: !isExpanded, expanded: isExpanded }"
+>
+    <ul>
+        <li
+            *ngFor="let item of itens"
+            [ngClass]="{
+                expanded: isExpanded && item.isExpanded && item.subitens
+            }"
+        >
+            <app-menu-item *ngIf="!item.subitens" [item]="item"></app-menu-item>
+            <app-menu-category
+                *ngIf="item.subitens"
+                [item]="item"
+                [expanded]="isExpanded"
+            ></app-menu-category>
+        </li>
+    </ul>
+</nav>

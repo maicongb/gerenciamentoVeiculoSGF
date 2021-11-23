@@ -1,0 +1,9 @@
+<app-breadcrumb
+    title="Cadastrar Categoria de Veículo"
+    path="SGF > Categoria de Veículo > Cadastrar"
+></app-breadcrumb>
+<app-categoria-veiculo-form
+  [isHidden]="isHidden"
+  saveLabel="Salvar"
+  (appSubmit)="handleSubmit($event)">
+</app-categoria-veiculo-form>

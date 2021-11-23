@@ -1,0 +1,52 @@
+<ng-container *ngIf="expanded; then category; else compact"></ng-container>
+<ng-template #compact>
+    <a
+        class="category-anchor"
+        [matTooltip]="item.label"
+        matTooltipPosition="left"
+        [matMenuTriggerFor]="submenu"
+        matTooltipClass="menu-tooltip"
+        href="javascript:void(0)"
+    >
+        <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
+        <span class="spacer"></span>
+        <mat-icon class="expand-icon">navigate_next</mat-icon>
+    </a>
+    <mat-menu #submenu="matMenu" class="expanded-menu">
+        <a
+            *ngFor="let subitem of item.subitens"
+            [routerLink]="subitem.route"
+            mat-menu-item
+        >
+            <mat-icon>{{ subitem.icon }}</mat-icon
+            >{{ subitem.label }}
+        </a>
+    </mat-menu>
+</ng-template>
+<ng-template #category>
+    <a
+        class="category-anchor"
+        (click)="menuService.toggleItemState(item)"
+        [matTooltip]="item.label"
+        matTooltipPosition="left"
+        href="javascript:void(0)"
+    >
+        <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
+        <span>{{ item.label }}</span>
+        <span class="spacer"></span>
+        <ng-container
+            *ngIf="item.isExpanded; then more; else next"
+        ></ng-container>
+    </a>
+    <ul #submenu [@expandHide]="item.isExpanded ? 'expanded' : 'hidden'">
+        <li *ngFor="let subitem of item.subitens">
+            <app-menu-item [item]="subitem" [subitem]="true"></app-menu-item>
+        </li>
+    </ul>
+</ng-template>
+<ng-template #next>
+    <mat-icon class="expand-icon">navigate_next</mat-icon>
+</ng-template>
+<ng-template #more>
+    <mat-icon class="expand-icon">expand_more</mat-icon>
+</ng-template>

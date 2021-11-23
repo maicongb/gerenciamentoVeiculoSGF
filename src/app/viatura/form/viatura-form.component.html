@@ -1,0 +1,291 @@
+<form (ngSubmit)="handleSubmit()" [formGroup]="form">
+    <mat-card>
+        <mat-card-content>
+            <h1>Dados do Veículo</h1>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+                <app-input
+                    fxFlex="30"
+                    formControlName="placa"
+                    label="Placa"
+                    required="true"
+                    maxlength="7"
+                    [errors]="{ minlength: 'O Número digitado deve ter 7 caracteres.' }"
+                ></app-input>
+            </div>
+
+
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+             >
+                <div class="col-placaUf"
+                    fxLayout.lt-sm="column"
+                    formGroupName="ufPlaca"
+                >
+
+                    <app-select
+                        label="Uf Placa"
+                        displayProperty="nome"
+                        formControlName="id"
+                        required="true"
+                        [opcoes]="unidadeFederativa$ | async"
+                    ></app-select>  
+                </div>
+
+                <div class="col-renavam-chassi-nMotor"
+                    fxLayout.lt-sm="column"
+                    fxLayoutGap.gt-xs="15px grid"
+                >
+            
+                    <app-input
+                        fxFlex="40"
+                        formControlName="renavam"
+                        label="Renavam"
+                        required="true"
+                    ></app-input>
+
+                    <app-input
+                        fxFlex="30"
+                        formControlName="chassi"
+                        label="Chassi"
+                        required="true"
+                    ></app-input>
+
+                    <app-input
+                        fxFlex="30"
+                        formControlName="numeroMotor"
+                        label="Número do Motor"
+                        required="true"
+                    ></app-input>
+                </div>    
+
+            </div>
+
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+
+                <div class="col-cor-anoFab-anoMod"
+                    fxLayout.lt-sm="column"
+                    fxLayoutGap.gt-xs="15px grid"
+                >          
+
+                    <app-input
+                        fxFlex="33"
+                        formControlName="cor"
+                        label="Cor"
+                        required="true"
+                    ></app-input>
+
+                    <app-input
+                        fxFlex="33"
+                        formControlName="anoFabricacao"
+                        label="Ano de Fabricação"
+                        required="true"
+                        mask="separator"
+                        maxlength="4"
+                        [errors]="{ minlength: 'O Número digitado deve ter 4 caracteres.' }"
+                    ></app-input>
+
+                    <app-input
+                        fxFlex="34"
+                        formControlName="anoModelo"
+                        label="Ano do Modelo"
+                        required="true"
+                        mask="separator"
+                        maxlength="4"
+                        [errors]="{ minlength: 'O Número digitado deve ter 4 caracteres.' }"
+                    ></app-input>
+                </div>
+
+                <div class="col-modeloVeiculo"
+                    fxLayout.lt-sm="column"
+                    formGroupName="modeloVeiculo"
+                >
+
+                    <app-select
+                        label="Modelo do Veículo"
+                        displayProperty="nome"
+                        formControlName="id"
+                        required="true"
+                        [opcoes]="modeloVeiculo$ | async"
+                    ></app-select>  
+
+                </div>
+
+                <div class="col-tipoCombustivel"
+                    fxLayout.lt-sm="column"
+                    formGroupName="tipoCombustivel"
+                >
+
+                    <app-select
+                        label="Tipo de Combustível"
+                        displayProperty="nome"
+                        formControlName="id"
+                        required="true"
+                        [opcoes]="tipoCombustivel$ | async"
+                    ></app-select>  
+
+                </div>
+            </div>
+
+                <!-- <mat-label *ngIf="isHidden">Status</mat-label>
+                <mat-slide-toggle
+                    fxFlex="10"
+                    formControlName="ativo"
+                    color="primary"
+                    *ngIf="isHidden"
+                ></mat-slide-toggle> -->
+        </mat-card-content> 
+    </mat-card>
+    <br>   
+        
+    <mat-card>
+        <mat-card-content>
+            <h1>Dados da Viatura</h1>
+
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+                <div class="col-prefixo"
+                    fxLayout.lt-sm="column"
+                    fxLayoutGap.gt-xs="15px grid"
+                > 
+
+                    <app-input
+                        fxFlex="100"
+                        formControlName="prefixo"
+                        label="Prefixo"
+                        required="true"
+                    ></app-input>
+                </div>    
+
+                <div *ngIf="isNovo" 
+                      class="col-upm-select"
+                      fxLayout.lt-sm="column">
+                    <app-select
+                        fxFlex="100"
+                        label="Upm"
+                        displayProperty="nome"
+                        formControlName="viaturaUpmId"
+                        [opcoes]="upm$ | async"
+                    ></app-select>
+                </div>    
+
+                <div *ngIf="!isNovo" 
+                      class="col-upm"
+                      fxLayout.lt-sm="column">
+                    <app-input
+                        fxFlex="100"
+                        formControlName="siglaUpm"
+                        label="UPM"
+                    ></app-input>
+                </div>
+                
+
+                <div class="col-tipoViatura"
+                    fxLayout.lt-sm="column"
+                    formGroupName="tipoViatura"
+                >
+
+                    <app-select
+                        label="Tipo de Viatura"
+                        displayProperty="nome"
+                        formControlName="id"
+                        required="true"
+                        [opcoes]="tipoViatura$ | async"
+                    ></app-select>  
+                </div>
+
+            </div>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >   
+
+                <app-input
+                    fxFlex="40"
+                    formControlName="odometro"
+                    label="Odometro"
+                    required="true"
+                    mask="separator"
+                ></app-input>
+
+                <app-date
+                    fxFlex="40"
+                    formControlName="dtProximaRevisao"
+                    label="Data da Próxima Revisão"
+                    required="true"
+                ></app-date>
+
+
+                <app-input
+                    fxFlex="40"
+                    formControlName="odometroProximaRevisao"
+                    label="Odometro da Próxima Revisão"
+                    required="true"
+                    mask="separator"
+                ></app-input>
+
+            </div>   
+        </mat-card-content> 
+    </mat-card>
+    <br>  
+    <mat-card>
+        <mat-card-content>
+            <h1>Patrimônio</h1>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+                <app-date
+                    fxFlex="34"
+                    formControlName="dtAquisicao"
+                    label="Data de Aquisição"
+                    required="true"
+                ></app-date>
+
+                <app-date
+                    fxFlex="33"
+                    formControlName="dtInclusao"
+                    label="Data de Inclusão"
+                    required="true"
+                ></app-date>
+
+                <app-input
+                    fxFlex="33"
+                    formControlName="tombamento"
+                    label="Tombamento"
+                    required="true"
+                ></app-input>
+
+                <app-input
+                    mask="00000.000000/0000-00"
+                    fxFlex="33"
+                    formControlName="numeroSei"
+                    label="Processo de Aquisição (SEI)"
+                    [errors]="{ mask: 'O Número SEI digitado é inválido.' }"
+                ></app-input>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">
+                {{saveLabel}}
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+    <!-- debug -->
+    <app-form-debug [form]="form"></app-form-debug>
+</form>

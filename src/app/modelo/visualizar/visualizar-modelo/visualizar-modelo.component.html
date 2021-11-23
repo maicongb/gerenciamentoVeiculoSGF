@@ -1,0 +1,81 @@
+<app-breadcrumb
+    title="Visualizar Marca Veículo"
+    path="SGF > Marca Veículo > Visualizar"
+></app-breadcrumb>
+<form [formGroup]="form">
+    <mat-card>
+        <mat-card-content>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+                formGroupName="marcaVeiculo"
+            >    
+                <app-input
+                    fxFlex="50"
+                    type="text"
+                    formControlName="nome"
+                    label="Marca do Veículo"
+                >
+                </app-input> 
+            </div> 
+
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+                formGroupName="categoriaVeiculo"
+            >    
+                <app-input
+                    fxFlex="50"
+                    type="text"
+                    formControlName="nome"
+                    label="Categoria do Veículo"
+                >
+                </app-input> 
+            </div> 
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+                <app-input
+                    fxFlex="30"
+                    type="text"
+                    formControlName="nome"
+                    label="Modelo"
+                >
+                </app-input> 
+
+                <app-input
+                    fxFlex="30"
+                    type="text"
+                    formControlName="potencia"
+                    label="Potência"
+                >
+                </app-input> 
+
+                <app-input
+                    fxFlex="30"
+                    type="text"
+                    formControlName="tanque"
+                    label="Capacidade do Tanque"
+                >
+                </app-input> 
+
+                <mat-label>Status</mat-label>
+                <mat-slide-toggle
+                    fxFlex="10"
+                    formControlName="ativo"
+                    color="primary"
+                ></mat-slide-toggle>
+            </div>
+             
+           
+        </mat-card-content>
+    </mat-card>
+    <!-- debug -->
+    <!-- <app-form-debug [form]="form"></app-form-debug> -->
+</form>
+
+

@@ -1,0 +1,11 @@
+<a
+    [routerLinkActive]="'active'"
+    [routerLink]="item.route"
+    [matTooltip]="item.label"
+    matTooltipPosition="left"
+    matTooltipClass="menu-tooltip"
+    [ngClass]="{ subitem: subitem }"
+>
+    <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
+    <span class="menu-label">{{ item.label }}</span>
+</a>

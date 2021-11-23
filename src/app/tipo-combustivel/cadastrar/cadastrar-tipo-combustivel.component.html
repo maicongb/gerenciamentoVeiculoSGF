@@ -1,0 +1,9 @@
+<app-breadcrumb
+    title="Cadastrar Tipo de Combustível"
+    path="SGF > Tipo de Combustível > Cadastrar"
+></app-breadcrumb>
+<app-tipo-combustivel-form
+  [isHidden]="isHidden"
+  saveLabel="Salvar"
+  (appSubmit)="handleSubmit($event)">
+</app-tipo-combustivel-form>

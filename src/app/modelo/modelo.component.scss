@@ -1,0 +1,80 @@
+table {
+    width: 100%;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .spacer {
+        flex: 1;
+    }
+    a,
+    button {
+        margin-left: 10px;
+    }
+}
+
+.mat-column-nome {
+    Word-wrap: break-Word !important;
+    white-space: unset !important;
+    flex: 0 0 90% !important;
+    width: 33% !important;
+    overflow-wrap: break-Word;
+    Word-wrap: break-Word;
+  
+    Word-break: break-Word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-marca-veiculo {
+    Word-wrap: break-Word !important;
+    white-space: unset !important;
+    flex: 0 0 90% !important;
+    width: 33% !important;
+    overflow-wrap: break-Word;
+    Word-wrap: break-Word;
+  
+    Word-break: break-Word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-categoria-veiculo {
+    Word-wrap: break-Word !important;
+    white-space: unset !important;
+    flex: 0 0 90% !important;
+    width: 30% !important;
+    overflow-wrap: break-Word;
+    Word-wrap: break-Word;
+  
+    Word-break: break-Word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-ativo {
+    Word-wrap: break-Word !important;
+    white-space: unset !important;
+    flex: 0 0 90% !important;
+    width: 10% !important;
+    overflow-wrap: break-Word;
+    Word-wrap: break-Word;
+  
+    Word-break: break-Word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}

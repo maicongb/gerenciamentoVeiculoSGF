@@ -1,0 +1,43 @@
+table {
+    width: 100%;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .spacer {
+        flex: 1;
+    }
+    a,
+    button {
+        margin-left: 10px;
+    }
+}
+
+
+.mat-column-nome {
+    Word-wrap: break-Word !important;
+    white-space: unset !important;
+    flex: 0 0 90% !important;
+    width: 40% !important;
+    overflow-wrap: break-Word;
+    Word-wrap: break-Word;
+  
+    Word-break: break-Word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-tipo-vistoria {
+    text-align: center;     /* alinhamento horizontal */
+    vertical-align: middle; /* alinhamento vertical */
+}
+
+.mat-column-ativo {
+    text-align: center;     /* alinhamento horizontal */
+    vertical-align: middle; /* alinhamento vertical */
+}

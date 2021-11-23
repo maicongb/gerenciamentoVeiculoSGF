@@ -1,0 +1,46 @@
+<mat-form-field>
+    <mat-label>{{ label }}</mat-label>
+    <input
+        matInput
+        [formControl]="control"
+        (blur)="onTouched()"
+        (input)="handleInput()"
+        (dateChange)="handleInput()"
+        [required]="required"
+        [matDatepicker]="picker"
+        [min]="minDate"
+        maxlength="10"
+    />
+    <mat-datepicker-toggle
+        *ngIf="help"
+        matPrefix
+        [for]="picker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker-toggle
+        *ngIf="!help"
+        matSuffix
+        [for]="picker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-icon
+        *ngIf="help"
+        matSuffix
+        [matTooltip]="help"
+        matTooltipClass="help-tooltip"
+    >
+        help
+    </mat-icon>
+    <mat-error *ngIf="control.invalid">
+        <ng-container
+            *ngIf="
+                control.hasError('required') &&
+                !control.hasError('matDatepickerParse')
+            "
+        >
+            Campo de preenchimento obrigatório
+        </ng-container>
+        <ng-container *ngIf="control.hasError('matDatepickerParse')">
+            Data inválida
+        </ng-container>
+    </mat-error>
+</mat-form-field>

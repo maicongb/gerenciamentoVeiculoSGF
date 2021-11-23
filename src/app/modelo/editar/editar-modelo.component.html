@@ -1,0 +1,10 @@
+<app-breadcrumb
+    title="Editar Modelo de Veículo"
+    path="SGF > Modelo de Veículo > Editar"
+></app-breadcrumb>
+<app-modelo-form
+  [value]="modeloVeiculo"
+  [isHidden]="isHidden"
+  saveLabel="Atualizar"
+  (appSubmit)="handleSubmit($event)">
+</app-modelo-form>

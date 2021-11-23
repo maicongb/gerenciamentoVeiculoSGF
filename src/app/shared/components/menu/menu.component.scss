@@ -1,0 +1,36 @@
+::ng-deep .expanded-menu {
+    margin-left: 75px;
+    margin-top: -50px;
+    width: 260px;
+}
+
+.sidebar {
+    width: 70px;
+    ul {
+        list-style: none;
+        padding: 0;
+        li:hover {
+            background-color: #212121;
+        }
+    }
+    .expanded {
+        background-color: #212121;
+    }
+}
+
+.expanded {
+    width: 262px;
+}
+
+::ng-deep .unexpanded {
+    .menu-label {
+        display: none;
+    }
+}
+
+::ng-deep .menu-tooltip {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

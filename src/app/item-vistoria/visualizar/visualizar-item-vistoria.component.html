@@ -1,0 +1,47 @@
+<app-breadcrumb
+    title="Visualizar Item de Vistoria"
+    path="SGF > Item de Vistoria > Visualizar"
+></app-breadcrumb>
+<form [formGroup]="form">
+    <mat-card>
+        <mat-card-content>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+            >
+                <app-input
+                    fxFlex="90"
+                    type="text"
+                    formControlName="nome"
+                    label="Item de Vistoria"
+                >
+                </app-input> 
+
+                <mat-label>Status</mat-label>
+                <mat-slide-toggle
+                    fxFlex="10"
+                    formControlName="ativo"
+                    color="primary"
+                ></mat-slide-toggle>
+            </div>
+            <div
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap.gt-xs="15px grid"
+                formGroupName="tipoVistoria"
+            >    
+            <app-input
+                fxFlex="50"
+                type="text"
+                formControlName="nome"
+                label="Item de Vistoria"
+            >
+            </app-input> 
+              
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <!-- debug -->
+    <app-form-debug [form]="form"></app-form-debug>
+</form>

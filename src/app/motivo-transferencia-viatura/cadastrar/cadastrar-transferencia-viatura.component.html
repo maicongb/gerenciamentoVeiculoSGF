@@ -1,0 +1,9 @@
+<app-breadcrumb
+    title="Cadastrar Motivo de Transferência de Viatura"
+    path="SGF > Motivo de Transferência de Viatura > Cadastrar"
+></app-breadcrumb>
+<app-motivo-transferencia-viatura-form
+  [isHidden]="isHidden"
+  saveLabel="Salvar"
+  (appSubmit)="handleSubmit($event)">
+</app-motivo-transferencia-viatura-form>

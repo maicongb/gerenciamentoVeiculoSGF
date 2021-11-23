@@ -1,0 +1,33 @@
+<mat-form-field>
+    <mat-label>{{ label }}</mat-label>
+    <input
+        matInput
+        [type]="type"
+        [mask]="mask"
+        [thousandSeparator]="thousandSeparator"
+        [formControl]="control"
+        (blur)="onTouched()"
+        (input)="handleInput()"
+        [maxlength]="maxlength"
+        [minlength]="minlength"
+        [required]="required"
+    />
+    <mat-icon
+        *ngIf="help"
+        matSuffix
+        [matTooltip]="help"
+        matTooltipClass="help-tooltip"
+    >
+        help
+    </mat-icon>
+    <mat-error *ngIf="control.invalid">
+        <ng-container *ngIf="control.hasError('required')">
+            Campo de preenchimento obrigatório
+        </ng-container>
+        <ng-container *ngFor="let error of errors | keyvalue">
+            <ng-container *ngIf="control.hasError(error.key)">
+                {{ error.value }}
+            </ng-container>
+        </ng-container>
+    </mat-error>
+</mat-form-field>

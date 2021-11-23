@@ -1,0 +1,10 @@
+<app-breadcrumb
+    title="Editar Tipo de Viatura"
+    path="SGF > Tipo de Viatura > Editar"
+></app-breadcrumb>
+<app-motivo-baixa-viatura-form
+  [value]="motivoBaixaViatura"
+  [isHidden]="isHidden"
+  saveLabel="Atualizar"
+  (appSubmit)="handleSubmit($event)">
+</app-motivo-baixa-viatura-form>
